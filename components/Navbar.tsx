@@ -21,8 +21,8 @@ export default function Navbar() {
     const navLinks = [
         { name: "Home", href: "#home" },
         { name: "How it works", href: "#how-it-works" },
-        { name: "Services", href: "#services" },
-        { name: "Pricing", href: "#pricing" },
+        { name: "Proof", href: "#proof" },
+        { name: "What you get", href: "#services" },
         { name: "FAQ", href: "#faq" },
     ];
 
@@ -66,12 +66,20 @@ export default function Navbar() {
                                 {link.name}
                             </Link>
                         ))}
-                        <Link
-                            href="#demo"
-                            className="px-5 py-2.5 rounded-lg bg-white text-slate-900 font-semibold text-sm hover:bg-cyan-50 transition-colors shadow-lg shadow-white/10"
-                        >
-                            Book a demo
-                        </Link>
+                        <div className="flex items-center gap-4">
+                            <Link
+                                href="#live-demo"
+                                className="px-5 py-2.5 rounded-lg border border-slate-700 bg-transparent text-slate-300 font-semibold text-sm hover:border-slate-500 hover:text-white transition-colors"
+                            >
+                                Hear the AI live
+                            </Link>
+                            <Link
+                                href="#demo"
+                                className="px-5 py-2.5 rounded-lg bg-white text-slate-900 font-semibold text-sm hover:bg-cyan-50 transition-colors shadow-lg shadow-white/10"
+                            >
+                                Book a demo
+                            </Link>
+                        </div>
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -107,6 +115,13 @@ export default function Navbar() {
                                 {link.name}
                             </Link>
                         ))}
+                        <Link
+                            href="#live-demo"
+                            onClick={() => setIsOpen(false)}
+                            className="mt-4 block w-full text-center px-5 py-3 rounded-lg border border-slate-700 bg-transparent text-slate-300 font-bold hover:border-slate-500 hover:text-white transition-colors"
+                        >
+                            Hear the AI live
+                        </Link>
                         <Link
                             href="#demo"
                             onClick={() => setIsOpen(false)}
