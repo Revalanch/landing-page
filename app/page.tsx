@@ -75,43 +75,108 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Right Visual (Desktop) */}
-          <div className="relative justify-center items-center hidden lg:flex h-[500px] perspective-[1000px]">
-            {/* Main Abstract Card */}
-            <div className="relative w-full max-w-md aspect-square bg-gradient-to-br from-slate-900/90 to-slate-950/90 border border-white/10 rounded-2xl p-8 backdrop-blur-xl shadow-2xl transform rotate-y-[-10deg] hover:rotate-y-0 transition-transform duration-500">
-              {/* Decorative "Avalanche Ball" Gradient */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-br from-cyan-500 via-blue-600 to-purple-600 rounded-full blur-3xl opacity-20 pointer-events-none animate-pulse" />
-              <div className="relative z-10 h-full flex flex-col justify-between">
-                <div className="flex justify-between items-center border-b border-white/5 pb-4">
-                  <div className="h-3 w-20 bg-slate-800 rounded-full" />
-                  <div className="h-3 w-8 bg-green-500/20 rounded-full" />
+          {/* Right Visual (Desktop) - AI Command Center */}
+          <div className="relative hidden lg:flex justify-center items-center h-[600px] w-full perspective-[2000px]">
+            {/* 3D Container */}
+            <div className="relative w-[400px] h-[500px] [transform-style:preserve-3d] [transform:rotateX(5deg)_rotateY(-12deg)] transition-transform duration-500 hover:[transform:rotateX(2deg)_rotateY(-5deg)]">
+
+              {/* Back Glow */}
+              <div className="absolute inset-0 bg-cyan-500/20 blur-[60px] rounded-full -z-10 animate-pulse" />
+
+              {/* Main Glass Panel */}
+              <div className="w-full h-full bg-slate-900/80 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden relative">
+
+                {/* Header */}
+                <div className="h-14 border-b border-white/5 flex items-center justify-between px-6 bg-white/5">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
+                    <span className="text-sm font-medium text-white tracking-wide">AI AGENT ACTIVE</span>
+                  </div>
+                  <div className="text-xs text-slate-500 font-mono">LIVE</div>
                 </div>
 
-                {/* Metric Cards inside Visual */}
-                <div className="space-y-4 my-auto">
-                  <div className="flex items-center gap-4 p-3 rounded-lg bg-slate-800/50 border border-white/5">
-                    <div className="p-2 bg-cyan-500/20 text-cyan-400 rounded-md">📞</div>
-                    <div>
-                      <div className="text-xs text-slate-400">Answered Calls</div>
-                      <div className="text-sm font-bold text-white">100%</div>
+                {/* Body - Simulated Feed */}
+                <div className="flex-1 p-6 space-y-4 overflow-hidden relative">
+                  {/* Gradient overlay for fade out */}
+                  <div className="absolute top-0 left-0 right-0 h-4 bg-gradient-to-b from-slate-900/80 to-transparent z-10" />
+
+                  {/* Animated Items */}
+                  <div className="space-y-3">
+                    {/* Item 1: Done */}
+                    <div className="p-3 rounded-xl bg-white/5 border border-white/5 flex items-center justify-between opacity-50">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-lg bg-indigo-500/20 flex items-center justify-center text-indigo-400 text-xs">📞</div>
+                        <div>
+                          <div className="text-xs text-slate-300">Missed Call</div>
+                          <div className="text-[10px] text-slate-500">2 min ago • Recovered</div>
+                        </div>
+                      </div>
+                      <div className="text-xs text-indigo-400 font-mono">MSG SENT</div>
+                    </div>
+
+                    {/* Item 2: Success */}
+                    <div className="p-3 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center justify-between">
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center text-green-400 text-xs">📅</div>
+                        <div>
+                          <div className="text-xs text-white">New Booking</div>
+                          <div className="text-[10px] text-slate-400">Just now • $450 Value</div>
+                        </div>
+                      </div>
+                      <div className="text-xs text-green-400 font-bold">CONFIRMED</div>
+                    </div>
+
+                    {/* Item 3: Active Processing */}
+                    <div className="p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-between relative overflow-hidden group">
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-500/10 to-transparent animate-shimmer" />
+                      <div className="flex items-center gap-3 relative z-10">
+                        <div className="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-xs">💬</div>
+                        <div>
+                          <div className="text-xs text-white">Incoming Query</div>
+                          <div className="text-[10px] text-slate-400">Processing intent...</div>
+                        </div>
+                      </div>
+                      <div className="flex gap-1 relative z-10">
+                        <span className="w-1 h-1 bg-cyan-400 rounded-full animate-bounce [animation-delay:-0.3s]"></span>
+                        <span className="w-1 h-1 bg-cyan-400 rounded-full animate-bounce [animation-delay:-0.15s]"></span>
+                        <span className="w-1 h-1 bg-cyan-400 rounded-full animate-bounce"></span>
+                      </div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-4 p-3 rounded-lg bg-slate-800/50 border border-white/5">
-                    <div className="p-2 bg-green-500/20 text-green-400 rounded-md">📈</div>
-                    <div>
-                      <div className="text-xs text-slate-400">Close Rate</div>
-                      <div className="text-sm font-bold text-white">↑ 20–40%</div>
+
+                  {/* Graph/Metric Area */}
+                  <div className="mt-6 pt-6 border-t border-white/5">
+                    <div className="flex justify-between items-end mb-2">
+                      <span className="text-xs text-slate-400">Daily Revenue Saved</span>
+                      <span className="text-lg font-bold text-white">$1,250</span>
+                    </div>
+                    <div className="h-24 w-full flex items-end gap-1">
+                      {[40, 65, 45, 80, 55, 90, 75].map((h, i) => (
+                        <div key={i} style={{ height: `${h}%` }} className="flex-1 bg-cyan-900/50 rounded-t-sm relative group/bar overflow-hidden">
+                          <div className="absolute bottom-0 left-0 right-0 bg-cyan-500/50 h-full opacity-50 group-hover/bar:opacity-100 transition-opacity" />
+                        </div>
+                      ))}
                     </div>
                   </div>
-                  <div className="flex items-center gap-4 p-3 rounded-lg bg-slate-800/50 border border-white/5">
-                    <div className="p-2 bg-blue-500/20 text-blue-400 rounded-md">💰</div>
-                    <div>
-                      <div className="text-xs text-slate-400">Revenue Lift</div>
-                      <div className="text-sm font-bold text-white">↑ up to 40%</div>
-                    </div>
-                  </div>
+
                 </div>
               </div>
+
+              {/* Floating Badge 1 */}
+              <div className="absolute -right-8 top-20 p-3 rounded-xl bg-slate-900/90 border border-slate-700 shadow-xl backdrop-blur-md animate-float">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                  <span className="text-xs font-bold text-white">Online 24/7</span>
+                </div>
+              </div>
+
+              {/* Floating Badge 2 */}
+              <div className="absolute -left-8 bottom-32 p-3 rounded-xl bg-slate-900/90 border border-slate-700 shadow-xl backdrop-blur-md animate-float" style={{ animationDelay: '2s' }}>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-bold text-slate-300">0 Missed Calls</span>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
