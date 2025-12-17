@@ -281,10 +281,10 @@ export default function Home() {
         <div className="space-y-6">
           {[
             { q: "Will the AI sound natural?", a: "Yes. We use the latest voice AI models that simulate human pauses, intonation, and latency. Most callers don't realize they're speaking to an AI." },
-            { q: "What if the AI can’t handle a call?", a: "The AI is trained to intelligently hand off complex calls to a human staff member or take a detailed message if no one is available." },
-            { q: "Can I use this only for missed calls?", a: "Absolutely. You can set it up to answer only when your line is busy or after-hours, ensuring you never miss a lead." },
-            { q: "How fast can we go live?", a: "We can typically build and deploy your custom AI agent within 3-5 business days." },
-            { q: "How do you track revenue generated?", a: "We integrate with your CRM to track which leads were booked by the AI and which ones converted to paid jobs." },
+            { q: "What if the AI says something wrong?", a: "It strictly follows your playbook. We program guardrails so it only answers based on your approved data. If it’s unsure, it takes a message rather than guessing." },
+            { q: "Why shouldn't I just hire a receptionist?", a: "A receptionist costs a full salary, goes home at 5 PM, and can only handle one call at a time. Revalanch works 24/7, scales infinitely, and costs a fraction of the price." },
+            { q: "Will my customers hate talking to a robot?", a: "Customers hate voicemail. They appreciate instant answers. Because our AI sounds human and actually solves their problem (booking, quoting, etc.), satisfaction is often higher than with busy human staff." },
+            { q: "Is it really worth the cost?", a: "Ask yourself: what is one qualified lead worth? If the AI rescues even one missed call per month, it usually pays for itself. The rest is pure profit." },
           ].map((faq, i) => (
             <div key={i} className="p-6 rounded-2xl bg-slate-900/40 border border-slate-800">
               <h3 className="font-bold text-white text-lg mb-2">{faq.q}</h3>
