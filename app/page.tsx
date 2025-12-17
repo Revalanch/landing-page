@@ -1,6 +1,7 @@
 import Image from "next/image";
 import CalBooking from "@/components/CalBooking";
 import ScrollToTop from "@/components/ScrollToTop";
+import ScrollIndicator from "@/components/ScrollIndicator";
 import Snowfall from "@/components/Snowfall";
 
 export default function Home() {
@@ -75,111 +76,98 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Right Visual (Desktop) - AI Command Center */}
+          {/* Right Visual (Desktop) - Live Call Simulation */}
           <div className="relative hidden lg:flex justify-center items-center h-[600px] w-full perspective-[2000px]">
-            {/* 3D Container */}
-            <div className="relative w-[400px] h-[500px] [transform-style:preserve-3d] [transform:rotateX(5deg)_rotateY(-12deg)] transition-transform duration-500 hover:[transform:rotateX(2deg)_rotateY(-5deg)]">
+            {/* 3D Phone Container */}
+            <div className="relative w-[300px] h-[580px] bg-slate-950 rounded-[3rem] border-4 border-slate-700 shadow-2xl [transform-style:preserve-3d] [transform:rotateY(-12deg)_rotateX(5deg)] transition-transform duration-500 hover:[transform:rotateY(-2deg)_rotateX(2deg)] group">
+              {/* Outer Glow */}
+              <div className="absolute inset-0 rounded-[3rem] shadow-[0_0_40px_rgba(34,211,238,0.1)] transition-opacity duration-500 group-hover:shadow-[0_0_60px_rgba(34,211,238,0.2)]" />
 
-              {/* Back Glow */}
-              <div className="absolute inset-0 bg-cyan-500/20 blur-[60px] rounded-full -z-10 animate-pulse" />
+              {/* Screen Content */}
+              <div className="absolute inset-1 bg-slate-900 rounded-[2.8rem] overflow-hidden flex flex-col border border-white/5">
 
-              {/* Main Glass Panel */}
-              <div className="w-full h-full bg-slate-900/80 backdrop-blur-xl border border-white/10 rounded-2xl shadow-2xl flex flex-col overflow-hidden relative">
-
-                {/* Header */}
-                <div className="h-14 border-b border-white/5 flex items-center justify-between px-6 bg-white/5">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
-                    <span className="text-sm font-medium text-white tracking-wide">AI AGENT ACTIVE</span>
-                  </div>
-                  <div className="text-xs text-slate-500 font-mono">LIVE</div>
+                {/* Dynamic Island / Notch */}
+                <div className="absolute top-3 left-1/2 -translate-x-1/2 h-7 w-28 bg-black rounded-full z-20 flex items-center justify-center gap-2 px-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                  <div className="w-1 h-1 rounded-full bg-slate-600" />
                 </div>
 
-                {/* Body - Simulated Feed */}
-                <div className="flex-1 p-6 space-y-4 overflow-hidden relative">
-                  {/* Gradient overlay for fade out */}
-                  <div className="absolute top-0 left-0 right-0 h-4 bg-gradient-to-b from-slate-900/80 to-transparent z-10" />
+                {/* Status Bar */}
+                <div className="h-12 flex justify-between items-center px-6 pt-2">
+                  <span className="text-[11px] text-white font-medium pl-2">9:41</span>
+                  <div className="flex gap-1.5 pr-2">
+                    <div className="w-4 h-2.5 bg-white rounded-[2px]" />
+                    <div className="w-0.5 h-1.5 bg-white/50" />
+                  </div>
+                </div>
 
-                  {/* Animated Items */}
-                  <div className="space-y-3">
-                    {/* Item 1: Done */}
-                    <div className="p-3 rounded-xl bg-white/5 border border-white/5 flex items-center justify-between opacity-50">
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-lg bg-indigo-500/20 flex items-center justify-center text-indigo-400 text-xs">📞</div>
-                        <div>
-                          <div className="text-xs text-slate-300">Missed Call</div>
-                          <div className="text-[10px] text-slate-500">2 min ago • Recovered</div>
-                        </div>
-                      </div>
-                      <div className="text-xs text-indigo-400 font-mono">MSG SENT</div>
-                    </div>
+                {/* Header: Incoming Call */}
+                <div className="bg-gradient-to-b from-slate-800/50 to-transparent p-6 pt-4 pb-4 text-center relative z-10">
+                  <div className="w-14 h-14 mx-auto bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center text-xl shadow-lg shadow-cyan-500/20 mb-3 animate-pulse ring-2 ring-white/10">
+                    👤
+                  </div>
+                  <h3 className="text-white font-bold text-base tracking-tight">New Lead</h3>
+                  <p className="text-cyan-400 text-xs font-medium uppercase tracking-wide opacity-80 animate-pulse">AI Agent Active</p>
+                </div>
 
-                    {/* Item 2: Success */}
-                    <div className="p-3 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center text-green-400 text-xs">📅</div>
-                        <div>
-                          <div className="text-xs text-white">New Booking</div>
-                          <div className="text-[10px] text-slate-400">Just now • $450 Value</div>
-                        </div>
-                      </div>
-                      <div className="text-xs text-green-400 font-bold">CONFIRMED</div>
-                    </div>
-
-                    {/* Item 3: Active Processing */}
-                    <div className="p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-between relative overflow-hidden group">
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-500/10 to-transparent animate-shimmer" />
-                      <div className="flex items-center gap-3 relative z-10">
-                        <div className="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center text-cyan-400 text-xs">💬</div>
-                        <div>
-                          <div className="text-xs text-white">Incoming Query</div>
-                          <div className="text-[10px] text-slate-400">Processing intent...</div>
-                        </div>
-                      </div>
-                      <div className="flex gap-1 relative z-10">
-                        <span className="w-1 h-1 bg-cyan-400 rounded-full animate-bounce [animation-delay:-0.3s]"></span>
-                        <span className="w-1 h-1 bg-cyan-400 rounded-full animate-bounce [animation-delay:-0.15s]"></span>
-                        <span className="w-1 h-1 bg-cyan-400 rounded-full animate-bounce"></span>
-                      </div>
-                    </div>
+                {/* Chat Transcription */}
+                <div className="flex-1 p-5 space-y-4 overflow-hidden flex flex-col justify-end pb-8">
+                  {/* Customer Bubble */}
+                  <div className="self-start max-w-[90%] p-3.5 rounded-2xl rounded-tl-sm bg-slate-800 border border-white/5 text-xs text-slate-200 animate-fade-in-up [animation-delay:0.5s] opacity-0 fill-mode-forwards shadow-sm">
+                    "Hi, are you open? Need an emergency repair."
                   </div>
 
-                  {/* Graph/Metric Area */}
-                  <div className="mt-6 pt-6 border-t border-white/5">
-                    <div className="flex justify-between items-end mb-2">
-                      <span className="text-xs text-slate-400">Daily Revenue Saved</span>
-                      <span className="text-lg font-bold text-white">$1,250</span>
-                    </div>
-                    <div className="h-24 w-full flex items-end gap-1">
-                      {[40, 65, 45, 80, 55, 90, 75].map((h, i) => (
-                        <div key={i} style={{ height: `${h}%` }} className="flex-1 bg-cyan-900/50 rounded-t-sm relative group/bar overflow-hidden">
-                          <div className="absolute bottom-0 left-0 right-0 bg-cyan-500/50 h-full opacity-50 group-hover/bar:opacity-100 transition-opacity" />
-                        </div>
-                      ))}
-                    </div>
+                  {/* AI Bubble */}
+                  <div className="self-end max-w-[90%] p-3.5 rounded-2xl rounded-tr-sm bg-gradient-to-br from-cyan-600 to-blue-600 text-xs text-white animate-fade-in-up [animation-delay:1.5s] opacity-0 fill-mode-forwards shadow-md">
+                    "Yes! We have a technician nearby. Can you share your address?"
                   </div>
 
+                  {/* Customer Bubble 2 */}
+                  <div className="self-start max-w-[90%] p-3.5 rounded-2xl rounded-tl-sm bg-slate-800 border border-white/5 text-xs text-slate-200 animate-fade-in-up [animation-delay:2.5s] opacity-0 fill-mode-forwards shadow-sm">
+                    "123 Main St. Can they come now?"
+                  </div>
+
+                  {/* AI Bubble 2 - Booking */}
+                  <div className="self-end max-w-[90%] p-3.5 rounded-2xl rounded-tr-sm bg-gradient-to-br from-cyan-600 to-blue-600 text-xs text-white animate-fade-in-up [animation-delay:3.5s] opacity-0 fill-mode-forwards shadow-md">
+                    "Confirmed. Technician dispatched. Arrival in 15 mins."
+                  </div>
                 </div>
               </div>
 
-              {/* Floating Badge 1 */}
-              <div className="absolute -right-8 top-20 p-3 rounded-xl bg-slate-900/90 border border-slate-700 shadow-xl backdrop-blur-md animate-float">
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                  <span className="text-xs font-bold text-white">Online 24/7</span>
+              {/* Floating Notification - Job Booked */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] bg-slate-900/95 backdrop-blur-md border border-cyan-500/30 p-4 rounded-2xl shadow-2xl animate-fade-in-up [animation-delay:4.5s] opacity-0 fill-mode-forwards text-center z-30">
+                <div className="w-10 h-10 mx-auto bg-green-500/20 rounded-full flex items-center justify-center mb-2">
+                  <span className="text-green-400 text-lg">✓</span>
+                </div>
+                <div className="text-white font-bold text-base">Job Booked!</div>
+                <div className="text-slate-400 text-xs mt-1">Synced to Calendar</div>
+              </div>
+            </div>
+
+            {/* Background Decorative Elements */}
+            <div className="absolute -right-8 top-1/4 bg-slate-900/80 backdrop-blur-md p-4 rounded-xl border border-white/10 shadow-xl animate-float [animation-delay:2s]">
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-green-500/20 rounded-lg text-green-400">🕒</div>
+                <div>
+                  <div className="text-[10px] text-slate-400 font-medium uppercase tracking-wider">Availability</div>
+                  <div className="text-sm font-bold text-white">24/7 Active</div>
                 </div>
               </div>
+            </div>
 
-              {/* Floating Badge 2 */}
-              <div className="absolute -left-8 bottom-32 p-3 rounded-xl bg-slate-900/90 border border-slate-700 shadow-xl backdrop-blur-md animate-float" style={{ animationDelay: '2s' }}>
-                <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold text-slate-300">0 Missed Calls</span>
+            <div className="absolute -left-10 bottom-1/3 bg-slate-900/80 backdrop-blur-md p-4 rounded-xl border border-white/10 shadow-xl animate-float">
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-blue-500/20 rounded-lg text-blue-400">💰</div>
+                <div>
+                  <div className="text-[10px] text-slate-400 font-medium uppercase tracking-wider">Revenue Saved</div>
+                  <div className="text-sm font-bold text-white">+$12,400/mo</div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
+
+        <ScrollIndicator />
       </section>
 
       {/* 2. How It Works Section */}
@@ -330,6 +318,6 @@ export default function Home() {
         <p className="text-sm opacity-50">&copy; {new Date().getFullYear()} Revalanch. All rights reserved.</p>
       </footer>
       <ScrollToTop />
-    </main>
+    </main >
   );
 }
