@@ -112,8 +112,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Proof Section */}
-      <section id="proof" className="w-full py-24 bg-slate-950 border-b border-white/5">
+      {/* 3. Results Section */}
+      <section id="results" className="w-full py-24 bg-slate-950 border-b border-white/5">
         <div className="max-w-4xl mx-auto px-6 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-white">
             What happens when you stop missing calls
