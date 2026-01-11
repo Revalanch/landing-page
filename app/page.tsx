@@ -92,9 +92,9 @@ export default function Home() {
           </h2>
           <div className="grid md:grid-cols-3 gap-8 text-left max-w-5xl mx-auto">
             {[
-              { num: "1", title: "We connect your call flow", text: "Forward missed calls - or all calls - to the AI agent.", color: "bg-cyan-600" },
-              { num: "2", title: "AI answers and qualifies instantly", text: "Understands job type, urgency, and location.", color: "bg-blue-600" },
-              { num: "3", title: "Jobs get booked or followed up", text: "Calendar updates, SMS confirmations, CRM logging.", color: "bg-purple-600" },
+              { num: "1", title: "Calls connect automatically", text: "No more missed calls, every call will be answered by the agent.", color: "bg-cyan-600" },
+              { num: "2", title: "AI answers and qualifies", text: "Identifies job type, urgency, and location in real time.", color: "bg-blue-600" },
+              { num: "3", title: "Jobs get booked", text: "All information needed for the ticket is collected.", color: "bg-purple-600" },
             ].map((step, i) => (
               <div key={i} className="relative p-8 rounded-2xl bg-slate-900/40 border border-slate-800 hover:border-slate-700 transition-colors">
                 <div className={`absolute -top-5 -left-5 w-12 h-12 rounded-full ${step.color} flex items-center justify-center font-bold text-white shadow-lg text-lg`}>
@@ -194,10 +194,9 @@ export default function Home() {
         <div className="space-y-6">
           {[
             { q: "Will the AI sound natural?", a: "Yes. We use the latest voice AI models that simulate human pauses, intonation, and latency. Most callers don't realize they're speaking to an AI." },
-            { q: "What if the AI says something wrong?", a: "It strictly follows your playbook. We program guardrails so it only answers based on your approved data. If it’s unsure, it takes a message rather than guessing." },
-            { q: "Why shouldn't I just hire a receptionist?", a: "A receptionist costs a full salary, goes home at 5 PM, and can only handle one call at a time. Revalanch works 24/7, scales infinitely, and costs a fraction of the price." },
-            { q: "Will my customers hate talking to a robot?", a: "Customers hate voicemail. They appreciate instant answers. Because our AI sounds human and actually solves their problem (booking, quoting, etc.), satisfaction is often higher than with busy human staff." },
-            { q: "Is it really worth the cost?", a: "Ask yourself: what is one qualified lead worth? If the AI rescues even one missed call per month, it usually pays for itself. The rest is pure profit." },
+            { q: "What happens if multiple customers call at the same time?", a: "Every call is answered instantly. The AI can handle multiple calls at the same time, so no one hears a busy signal, goes to voicemail, or gets put on hold. Whether two people call or twenty, every opportunity is captured." },
+            { q: "Is the AI available 24/7?", a: "Yes. Revalanch answers calls around the clock, including nights, weekends, and holidays. Every inbound call is handled instantly, so opportunities are never missed, even outside business hours." },
+            { q: "Will customers mind talking to AI?", a: "Most customers do not even notice it is AI. What they care about is fast, helpful service. In practice, we see higher close rates compared to human-only answering. Numbers don't lie!" },
           ].map((faq, i) => (
             <div key={i} className="p-6 rounded-2xl bg-slate-900/40 border border-slate-800">
               <h3 className="font-bold text-white text-lg mb-2">{faq.q}</h3>
