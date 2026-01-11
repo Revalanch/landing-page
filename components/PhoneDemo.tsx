@@ -68,7 +68,7 @@ export default function PhoneDemo() {
             </div>
 
             {/* Background Decorative Elements */}
-            <div className="absolute -right-8 top-1/4 bg-slate-900 border border-slate-700/50 p-4 rounded-xl shadow-xl animate-float [animation-delay:2s]">
+            <div className="absolute -right-8 top-1/4 bg-slate-900 border border-slate-700/50 p-4 rounded-xl shadow-xl animate-float [animation-delay:2s] mr-4">
                 <div className="flex items-center gap-3">
                     <div className="p-2 bg-green-500/20 rounded-lg text-green-400">🕒</div>
                     <div>

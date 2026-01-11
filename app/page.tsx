@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center overflow-x-hidden bg-slate-950">
       {/* 1. Hero Section */}
-      <section id="home" className="relative w-full min-h-screen pt-20 overflow-hidden border-b border-white/5 bg-slate-950 flex flex-col justify-center">
+      <section id="home" className="relative w-full min-h-screen pt-26 pb-12 overflow-hidden border-b border-white/5 bg-slate-950 flex flex-col justify-center">
         {/* Background Grid & Glow */}
         <div className="absolute inset-0 bg-grid z-0 pointer-events-none opacity-20" />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-cyan-900/10 blur-[120px] rounded-full pointer-events-none transform-gpu translate-z-0" />

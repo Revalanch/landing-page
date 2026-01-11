@@ -28,7 +28,7 @@ export default function Navbar() {
 
     return (
         <nav
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled || isOpen
                 ? "bg-slate-950/80 backdrop-blur-xl py-4"
                 : "bg-transparent py-6"
                 }`}
@@ -56,7 +56,7 @@ export default function Navbar() {
                     </Link>
 
                     {/* Desktop Nav */}
-                    <div className="hidden md:flex items-center gap-8">
+                    <div className="hidden min-[860px]:flex items-center gap-8">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}
@@ -80,7 +80,7 @@ export default function Navbar() {
                     {/* Mobile Menu Button */}
                     <button
                         onClick={() => setIsOpen(!isOpen)}
-                        className="md:hidden p-2 text-slate-300 hover:text-white"
+                        className="min-[860px]:hidden p-2 text-slate-300 hover:text-white"
                     >
                         <span className="sr-only">Open menu</span>
                         {isOpen ? (
@@ -97,30 +97,44 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Menu */}
-            {isOpen && (
-                <div className="md:hidden absolute top-full left-0 right-0 bg-slate-950 border-b border-slate-800 p-4 shadow-2xl">
-                    <div className="flex flex-col space-y-4">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.name}
-                                href={link.href}
-                                onClick={() => setIsOpen(false)}
-                                className="text-base font-medium text-slate-300 hover:text-white block px-2 py-1"
-                            >
-                                {link.name}
-                            </Link>
-                        ))}
-
+            <div
+                className={`min-[860px]:hidden absolute top-full left-0 right-0 bg-slate-950 border-b border-slate-800 shadow-2xl overflow-hidden transition-all duration-300 ease-out ${
+                    isOpen
+                        ? "max-h-[400px] opacity-100"
+                        : "max-h-0 opacity-0 border-transparent"
+                }`}
+            >
+                <div className="flex flex-col space-y-4 p-4">
+                    {navLinks.map((link, index) => (
                         <Link
-                            href="#demo"
+                            key={link.name}
+                            href={link.href}
                             onClick={() => setIsOpen(false)}
-                            className="mt-2 block w-full text-center px-5 py-3 rounded-lg bg-white text-slate-900 font-bold hover:bg-cyan-50 transition-colors"
+                            className={`text-base font-medium text-slate-300 hover:text-white block px-2 py-1 transition-all duration-300 ${
+                                isOpen
+                                    ? "translate-x-0 opacity-100"
+                                    : "-translate-x-4 opacity-0"
+                            }`}
+                            style={{ transitionDelay: isOpen ? `${index * 50}ms` : "0ms" }}
                         >
-                            Book a demo
+                            {link.name}
                         </Link>
-                    </div>
+                    ))}
+
+                    <Link
+                        href="#demo"
+                        onClick={() => setIsOpen(false)}
+                        className={`mt-2 block w-full text-center px-5 py-3 rounded-lg bg-white text-slate-900 font-bold hover:bg-cyan-50 transition-all duration-300 ${
+                            isOpen
+                                ? "translate-y-0 opacity-100"
+                                : "translate-y-2 opacity-0"
+                        }`}
+                        style={{ transitionDelay: isOpen ? `${navLinks.length * 50}ms` : "0ms" }}
+                    >
+                        Book a demo
+                    </Link>
                 </div>
-            )}
+            </div>
         </nav>
     );
 }
