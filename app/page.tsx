@@ -86,7 +86,7 @@ export default function Home() {
       {/* 2. How It Works Section */}
       <section id="how-it-works" className="w-full py-24 border-y border-white/5 relative">
         <div className="absolute inset-0 bg-slate-900/20" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-16 text-white">
             How it works
           </h2>
@@ -114,7 +114,7 @@ export default function Home() {
 
       {/* 3. Proof Section */}
       <section id="proof" className="w-full py-24 bg-slate-950 border-b border-white/5">
-        <div className="max-w-4xl mx-auto px-4 text-center">
+        <div className="max-w-4xl mx-auto px-6 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-white">
             What happens when you stop missing calls
           </h2>
@@ -141,7 +141,7 @@ export default function Home() {
       </section>
 
       {/* 4. Services Section */}
-      <section id="services" className="w-full py-24 max-w-7xl mx-auto px-4">
+      <section id="services" className="w-full py-24 max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
             What the AI handles for you
@@ -172,7 +172,7 @@ export default function Home() {
       {/* 7. Booking Section */}
       <section id="demo" className="w-full py-24 relative border-t border-white/5">
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 to-cyan-950/10 pointer-events-none" />
-        <div className="max-w-5xl mx-auto px-4 text-center relative z-10">
+        <div className="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
             Book a 15-minute demo
           </h2>
@@ -187,7 +187,7 @@ export default function Home() {
       </section>
 
       {/* 8. FAQ Section */}
-      <section id="faq" className="w-full py-24 max-w-3xl mx-auto px-4">
+      <section id="faq" className="w-full py-24 max-w-3xl mx-auto px-6 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold mb-12 text-center text-white">
           Frequently Asked Questions
         </h2>
